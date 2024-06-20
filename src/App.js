@@ -9,23 +9,28 @@ function App() {
   const [input, setInput] = useState('');
   const [cep, setCep] = useState({});
 
+  
+
   async function handleSearch(){
     if(input === ''){
       alert("Campo CEP vazio")
       return;
     }
 
-    try{
-      const response = await api.get(`${input}/json`);
-      setCep(response.data)
-      setInput("");
+      try{
+        const response = await api.get(`${input}/json`);
+        setCep(response.data)
+        setInput("");
 
+        
 
-    }catch{
-      alert("Não encontrei o CEP digitado.")
-      setInput("")
-    }
+      }catch{
+        alert("Não encontrei o CEP digitado.")
+        setInput("")
+      }
+  
   }
+  
   
   return (
     <div className="container">
@@ -43,7 +48,8 @@ function App() {
           <FiSearch size={25} color="#FFF"/>
         </button>
       </div>
-
+      
+      
 
       {Object.keys(cep).length > 0 && (
         <main className='main'>
@@ -54,10 +60,11 @@ function App() {
         <span>Estado: {cep.uf}</span>
         </main>
       )}
-      
-
     </div>
   );
+
+  
 }
+
 
 export default App;
