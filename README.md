@@ -2,3 +2,5 @@
 Logo abaixo, exibi no mini-mapa o logradouro em questão demarcando toda a sua extensão!
 
 - Projeto desenvolvido com boas práticas de JS, com REACT.
+
+- Link para teste em tempo real: https://cep-map-react.vercel.app/
