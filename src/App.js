@@ -4,6 +4,9 @@ import './styles.css';
 
 import api from './services/api';
 
+
+
+
 function App() {
 
   const [input, setInput] = useState('');
@@ -15,7 +18,7 @@ function App() {
     if(input === ''){
       alert("Campo CEP vazio")
       return;
-    }
+    }else{
 
       try{
         const response = await api.get(`${input}/json`);
@@ -23,15 +26,15 @@ function App() {
         setInput("");
 
         
+        
 
       }catch{
         alert("Não encontrei o CEP digitado.")
         setInput("")
       }
-  
+    }    
   }
-  
-  
+
   return (
     <div className="container">
       <h1 className="title">Buscar CEP</h1>
@@ -49,7 +52,6 @@ function App() {
         </button>
       </div>
       
-      
 
       {Object.keys(cep).length > 0 && (
         <main className='main'>
@@ -59,12 +61,17 @@ function App() {
         <span>Cidade: {cep.localidade}</span>
         <span>Estado: {cep.uf}</span>
         </main>
-      )}
+        
+      )} 
+
     </div>
   );
 
   
-}
+  
+};
 
+
+  
 
 export default App;
